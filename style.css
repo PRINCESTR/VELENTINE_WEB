@@ -534,8 +534,11 @@ body {
     background: var(--gold);
     top: -20px;
     left: -5px;
-    transform: translateZ(80px);
+    transform: translateZ(100px);
+    /* Increased from 80px to fix Z-fighting */
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    z-index: 20;
+    /* Ensure it stays on top */
 }
 
 .ribbon {
@@ -1257,6 +1260,10 @@ body {
 .premium-gift-box[data-step="2"] .lid {
     background: linear-gradient(45deg, #ffc0cb, #ff69b4, #ffc0cb) !important;
     box-shadow: 0 0 15px rgba(255, 105, 180, 0.5) !important;
+    transform: translateZ(85px) !important;
+    /* Pop it out more */
+    z-index: 50 !important;
+    /* Force on top */
 }
 
 .premium-gift-box[data-step="2"] .ribbon {
