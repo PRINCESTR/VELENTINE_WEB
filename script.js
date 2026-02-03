@@ -417,7 +417,7 @@ if (fixDateBtn) {
     fixDateBtn.addEventListener('click', () => {
         // WhatsApp Redirect
         const phone = "918866666685";
-        const message = encodeURIComponent("Hey! I loved the surprise. Kadi Malva Aavo! 💖");
+        const message = encodeURIComponent("Hey! I loved the surprise. Kadi Malva Aavo! 💞");
         window.open(`https://wa.me/${phone}?text=${message}`, '_blank');
     });
 }
