@@ -797,7 +797,11 @@ body {
         font-size: 11px;
         letter-spacing: 2px;
         max-width: 100%;
-        /* Fill container */
+        min-height: 48px;
+        /* Touch Friendly */
+        display: flex;
+        align-items: center;
+        justify-content: center;
     }
 
     /* Fixed user's hardcoded min-width for small screens */
