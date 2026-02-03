@@ -1418,3 +1418,42 @@ body {
         font-size: 14px;
     }
 }
+
+
+/* ================================================= */
+/* === RELATIONSHIP TIMER (User Request) === */
+/* ================================================= */
+
+.relationship-timer-container {
+    text-align: center;
+    margin-bottom: 25px;
+    padding: 10px;
+    border-bottom: 1px solid rgba(212, 175, 55, 0.2);
+}
+
+.timer-label {
+    font-family: var(--font-serif);
+    font-style: italic;
+    color: rgba(255, 255, 255, 0.7);
+    font-size: 14px;
+    display: block;
+    margin-bottom: 5px;
+}
+
+.timer-display {
+    font-family: 'Courier New', Courier, monospace;
+    /* Monospace for steady numbers */
+    color: #d4af37;
+    /* Gold */
+    font-size: 18px;
+    font-weight: bold;
+    letter-spacing: 2px;
+    text-shadow: 0 0 10px rgba(212, 175, 55, 0.4);
+}
+
+@media screen and (max-width: 480px) {
+    .timer-display {
+        font-size: 14px;
+        /* Slight scale down for mobile */
+    }
+}

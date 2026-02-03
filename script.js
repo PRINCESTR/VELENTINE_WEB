@@ -422,3 +422,41 @@ if (fixDateBtn) {
     });
 }
 
+
+
+
+// ========== RELATIONSHIP TIMER (User Request) ==========
+function startRelationshipTimer() {
+    // Start Date: Jan 1, 2024 (as requested)
+    // Note: Month is 0-indexed in JS Date? Actually string format YYYY-MM-DD works best
+    const startDate = new Date('2024-01-01T00:00:00');
+    const displayElement = document.getElementById('relationshipTimer');
+
+    if (!displayElement) return;
+
+    function updateTimer() {
+        const now = new Date();
+        const diff = now - startDate;
+
+        // Calculations
+        const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+        const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+        const seconds = Math.floor((diff % (1000 * 60)) / 1000);
+
+        // Format: X Days : Y Hours : Z Minutes : S Seconds
+        displayElement.innerHTML =
+            `<span style="color:#fff">${days}</span> DAYS : ` +
+            `<span style="color:#fff">${String(hours).padStart(2, '0')}</span> HRS : ` +
+            `<span style="color:#fff">${String(minutes).padStart(2, '0')}</span> MIN : ` +
+            `<span style="color:#d4af37">${String(seconds).padStart(2, '0')}</span> SEC`;
+    }
+
+    // Update immediately and then every second
+    updateTimer();
+    setInterval(updateTimer, 1000);
+}
+
+// Start the timer
+startRelationshipTimer();
+
