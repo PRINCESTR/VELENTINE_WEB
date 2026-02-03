@@ -923,15 +923,18 @@ body {
 /* ====================================================== */
 
 @media screen and (max-width: 480px) {
+
     /* 1. Global Container Fixes */
     body {
-        overflow-x: hidden; /* Prevent side scrolling */
+        overflow-x: hidden;
+        /* Prevent side scrolling */
         width: 100%;
     }
 
     .luxury-container {
         width: 100%;
-        padding: 0 15px; /* Ensure padding so text doesn't touch edges */
+        padding: 0 15px;
+        /* Ensure padding so text doesn't touch edges */
     }
 
     /* 2. Main Screen Headline Scaling (Fixes Screenshot 1) */
@@ -942,13 +945,16 @@ body {
     }
 
     .gold-accent {
-        font-size: 0.9em; /* Adjust cursive accent size */
-        display: block; /* Put "Valentine?" on its own line if needed */
+        font-size: 0.9em;
+        /* Adjust cursive accent size */
+        display: block;
+        /* Put "Valentine?" on its own line if needed */
         margin-top: 5px;
     }
 
     .serif-name {
-        font-size: 2rem; /* Make signature smaller */
+        font-size: 2rem;
+        /* Make signature smaller */
     }
 
     /* 3. Button Layout Alignment */
@@ -956,20 +962,23 @@ body {
         width: 100%;
         flex-direction: column;
         gap: 15px;
-        align-items: center; /* Perfect centering */
+        align-items: center;
+        /* Perfect centering */
     }
 
     .btn-luxury {
         width: 100%;
-        max-width: 280px; /* Nice width for mobile */
-        font-size: 14px; /* Readable text */
+        max-width: 280px;
+        /* Nice width for mobile */
+        font-size: 14px;
+        /* Readable text */
         padding: 15px 0;
     }
 
     /* Keep 'No' button smaller so it can still 'run away' nicely */
     #noBtn {
         width: auto !important;
-        min-width: 150px !important; 
+        min-width: 150px !important;
     }
 
     /* 4. Celebration Screen OVERFLOW FIX (Fixes Screenshot 2) */
@@ -987,7 +996,8 @@ body {
         /* Drastically reduce size to fit "IT'S A DATE" */
         font-size: clamp(2rem, 10vw, 3.5rem) !important;
         line-height: 1.1;
-        white-space: normal; /* Allow wrapping */
+        white-space: normal;
+        /* Allow wrapping */
         word-wrap: break-word;
     }
 
@@ -1000,41 +1010,47 @@ body {
     .memory-card-modal {
         width: 90%;
         max-height: 80vh;
-        overflow-y: auto; /* Scroll if text is long */
+        overflow-y: auto;
+        /* Scroll if text is long */
         padding: 20px;
     }
-    
+
     .gift-stage {
-        transform: scale(0.8); /* Shrink gift box slightly */
+        transform: scale(0.8);
+        /* Shrink gift box slightly */
     }
 }
 
 /* Landscape Mode Safety Fix */
 @media screen and (max-height: 500px) and (orientation: landscape) {
-    .main-screen, .luxury-container {
+
+    .main-screen,
+    .luxury-container {
         padding-top: 40px;
         height: auto;
         min-height: 100vh;
         overflow-y: auto;
     }
 }
+
 /* ================================================= */
 /* === MOBILE CENTERING FIX (Paste at end) === */
 /* ================================================= */
 
 @media screen and (max-width: 480px) {
+
     /* 1. Force Perfect Centering */
     .main-screen {
         /* Use dynamic height to account for mobile address bars */
-        height: 100dvh !important; 
+        height: 100dvh !important;
         min-height: 100dvh !important;
-        
+
         /* Flexbox Enforcement */
         display: flex !important;
         flex-direction: column !important;
         align-items: center !important;
         justify-content: center !important;
-        
+
         /* Remove default padding that might push it off */
         padding: 0 !important;
     }
@@ -1042,7 +1058,7 @@ body {
     /* 2. Visual Adjustment */
     .luxury-container {
         /* Nudge up slightly (-5%) to account for the visual weight of buttons */
-        transform: translateY(-5%); 
+        transform: translateY(-5%);
         width: 100%;
         display: flex;
         flex-direction: column;
@@ -1057,6 +1073,7 @@ body {
         padding: 0 10px;
     }
 }
+
 /* ================================================= */
 /* === FIX: FORCE SCREEN 1 TO VISUAL CENTER === */
 /* ================================================= */
@@ -1066,22 +1083,223 @@ body {
         /* 1. Use dynamic viewport height to ignore browser bars */
         height: 100dvh !important;
         min-height: 100dvh !important;
-        
+
         /* 2. Force Flex Centering */
         display: flex !important;
         flex-direction: column !important;
         justify-content: center !important;
         align-items: center !important;
-        
+
         /* 3. THE FIX: Add bottom padding to push content UP */
         /* This physically lifts the center point higher */
-        padding-bottom: 20vh !important; 
+        padding-bottom: 20vh !important;
         padding-top: 0 !important;
     }
 
     .luxury-container {
         /* Reset any margins that might be pushing it down */
         margin-top: 0 !important;
-        transform: none !important; 
+        transform: none !important;
+    }
+}
+
+/* ================================================= */
+/* === GIFT BOX VISUAL UPGRADE (Paste at end) === */
+/* ================================================= */
+
+/* 1. Make the Box look 3D & Shiny (Red Velvet Gradients) */
+.box-body {
+    /* Front Face */
+    background: linear-gradient(135deg, #d90429, #8d0018) !important;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    box-shadow: inset 0 0 20px rgba(0, 0, 0, 0.5);
+    /* Velvet depth */
+}
+
+.premium-gift-box::before {
+    /* Left Face (Darker for shadow) */
+    background: linear-gradient(135deg, #7a0015, #50000e) !important;
+}
+
+.premium-gift-box::after {
+    /* Right Face (Darker for shadow) */
+    background: linear-gradient(135deg, #7a0015, #50000e) !important;
+}
+
+/* 2. Make the Gold Lid & Ribbon Metallic */
+.lid {
+    background: linear-gradient(45deg, #b8860b, #ffd700, #fffacd, #ffd700) !important;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.5) !important;
+}
+
+.ribbon {
+    background: linear-gradient(to bottom, #ffd700, #eebb00, #b8860b) !important;
+    box-shadow: 0 0 10px rgba(255, 215, 0, 0.3);
+}
+
+/* 3. Add a "Magical Float" Animation & Holy Glow */
+@keyframes magicalFloat {
+
+    0%,
+    100% {
+        transform: translateY(0) rotateX(0);
+    }
+
+    50% {
+        transform: translateY(-15px) rotateX(2deg);
+    }
+}
+
+.premium-gift-box {
+    animation: magicalFloat 4s ease-in-out infinite;
+    /* Remove background on the container itself so it doesn't bleed through */
+    background: transparent !important;
+    box-shadow: 0 40px 60px -20px rgba(212, 175, 55, 0.3);
+    /* Holy Glow */
+}
+
+/* 4. "For Dimple" Hanging Tag */
+.premium-gift-box::after {
+    /* We override the previous ::after (right face) carefully OR use a new child element. 
+       Since ::after is used for the cube side, we should actually append a span for the tag
+       OR simply reuse the ribbon container if structure allows. 
+       
+       BETTER APPROACH: Let's assume we can't change HTML structure (User Rule).
+       We can attach it to the .ribbon pseudo-element or just use the existing logic 
+       but we need to be careful not to break the cube.
+       
+       Actually, the user allowed CSS only. 
+       Let's stick a pseudo element on the .ribbon class since it's on top.
+    */
+}
+
+/* We'll use the .ribbon::after for the tag to not break the cube sides */
+.ribbon::after {
+    content: "For Dimple";
+    position: absolute;
+    top: 40px;
+    right: -50px;
+    /* Hang off the side */
+    background: #fff;
+    padding: 5px 10px;
+    font-family: 'Sacramento', cursive;
+    color: #d4af37;
+    font-size: 16px;
+    font-weight: bold;
+    transform: rotate(-10deg);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    border: 1px solid #ddd;
+    border-radius: 2px 2px 10px 2px;
+    /* Look like a tag */
+    transform-origin: top left;
+    animation: tagSway 3s infinite ease-in-out alternate;
+    z-index: 50;
+    width: max-content;
+}
+
+/* Tiny string for the tag */
+.ribbon::before {
+    content: '';
+    position: absolute;
+    top: 20px;
+    right: -10px;
+    width: 25px;
+    height: 25px;
+    border-bottom: 1px solid #fffacd;
+    border-right: 1px solid #fffacd;
+    transform: skew(20deg);
+    opacity: 0.8;
+}
+
+@keyframes tagSway {
+    from {
+        transform: rotate(-12deg);
+    }
+
+    to {
+        transform: rotate(-8deg);
+    }
+}
+
+/* ================================================= */
+/* === MULTI-STAGE GIRL BOX THEMES === */
+/* ================================================= */
+
+/* --- Step 2: Midnight Blue & Silver (Deep Trust) --- */
+.premium-gift-box[data-step="1"] .box-body {
+    background: linear-gradient(135deg, #0d1b2a, #1b263b) !important;
+}
+
+.premium-gift-box[data-step="1"]::before {
+    background: linear-gradient(135deg, #000814, #0d1b2a) !important;
+}
+
+.premium-gift-box[data-step="1"]::after {
+    background: linear-gradient(135deg, #000814, #0d1b2a) !important;
+}
+
+.premium-gift-box[data-step="1"] .lid {
+    background: linear-gradient(45deg, #e0e1dd, #778da9, #e0e1dd) !important;
+}
+
+.premium-gift-box[data-step="1"] .ribbon {
+    background: linear-gradient(to bottom, #e0e1dd, #778da9, #415a77) !important;
+}
+
+.premium-gift-box[data-step="1"] .ribbon::after {
+    color: #415a77;
+    border-color: #778da9;
+    content: "Open Me";
+    /* Change text too! */
+}
+
+/* --- Step 3: Royal Purple & Rose Gold (Magic) --- */
+.premium-gift-box[data-step="2"] .box-body {
+    background: linear-gradient(135deg, #3c096c, #240046) !important;
+}
+
+.premium-gift-box[data-step="2"]::before {
+    background: linear-gradient(135deg, #240046, #10002b) !important;
+}
+
+.premium-gift-box[data-step="2"]::after {
+    background: linear-gradient(135deg, #240046, #10002b) !important;
+}
+
+.premium-gift-box[data-step="2"] .lid {
+    background: linear-gradient(45deg, #ffcdb2, #e5989b, #ffcdb2) !important;
+}
+
+.premium-gift-box[data-step="2"] .ribbon {
+    background: linear-gradient(to bottom, #ffcdb2, #b5838d, #6d6875) !important;
+}
+
+.premium-gift-box[data-step="2"] .ribbon::after {
+    color: #6d6875;
+    content: "Last One!";
+}
+
+
+/* 5. Center the Gift Screen on Mobile */
+@media screen and (max-width: 480px) {
+    #giftScreen {
+        height: 100dvh !important;
+        display: flex !important;
+        flex-direction: column !important;
+        justify-content: center !important;
+        align-items: center !important;
+        padding-bottom: 15vh !important;
+        /* Lift visual center slightly */
+    }
+
+    #giftScreen .luxury-container {
+        transform: scale(0.9);
+        /* Fit nicely on screen */
+    }
+
+    .instruction {
+        margin-top: 50px;
+        /* Give space between box and text */
+        font-size: 12px;
     }
 }

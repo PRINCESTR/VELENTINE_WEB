@@ -277,6 +277,11 @@ if (keepBtn) {
         // Advance Progress
         unlockedMemoryIndex++;
 
+        // Update Gift Box Style for Next Step
+        if (els.giftBox) {
+            els.giftBox.setAttribute('data-step', unlockedMemoryIndex);
+        }
+
         // Update Instruction for Next Step
         if (unlockedMemoryIndex < MEMORIES.length) {
             els.instruction.textContent = `Tap to Unwrap Memory ${unlockedMemoryIndex + 1} of ${MEMORIES.length}`;
