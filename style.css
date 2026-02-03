@@ -917,3 +917,171 @@ body {
         /* Hide signature to save space */
     }
 }
+
+/* ====================================================== */
+/* === FINAL MOBILE FIXES (Paste at the end of CSS) === */
+/* ====================================================== */
+
+@media screen and (max-width: 480px) {
+    /* 1. Global Container Fixes */
+    body {
+        overflow-x: hidden; /* Prevent side scrolling */
+        width: 100%;
+    }
+
+    .luxury-container {
+        width: 100%;
+        padding: 0 15px; /* Ensure padding so text doesn't touch edges */
+    }
+
+    /* 2. Main Screen Headline Scaling (Fixes Screenshot 1) */
+    .architectural-headline {
+        /* Force smaller font on mobile so "Valentine" fits */
+        font-size: clamp(2.5rem, 10vw, 3.5rem) !important;
+        line-height: 1.1;
+    }
+
+    .gold-accent {
+        font-size: 0.9em; /* Adjust cursive accent size */
+        display: block; /* Put "Valentine?" on its own line if needed */
+        margin-top: 5px;
+    }
+
+    .serif-name {
+        font-size: 2rem; /* Make signature smaller */
+    }
+
+    /* 3. Button Layout Alignment */
+    .control-center {
+        width: 100%;
+        flex-direction: column;
+        gap: 15px;
+        align-items: center; /* Perfect centering */
+    }
+
+    .btn-luxury {
+        width: 100%;
+        max-width: 280px; /* Nice width for mobile */
+        font-size: 14px; /* Readable text */
+        padding: 15px 0;
+    }
+
+    /* Keep 'No' button smaller so it can still 'run away' nicely */
+    #noBtn {
+        width: auto !important;
+        min-width: 150px !important; 
+    }
+
+    /* 4. Celebration Screen OVERFLOW FIX (Fixes Screenshot 2) */
+    .celebration-screen .reveal-content {
+        width: 100%;
+        padding: 0 10px;
+        /* Ensure it is vertically centered */
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    }
+
+    .grand-reveal-text {
+        /* Drastically reduce size to fit "IT'S A DATE" */
+        font-size: clamp(2rem, 10vw, 3.5rem) !important;
+        line-height: 1.1;
+        white-space: normal; /* Allow wrapping */
+        word-wrap: break-word;
+    }
+
+    .sub-reveal-text {
+        font-size: 14px;
+        margin-top: 10px;
+    }
+
+    /* 5. Memory/Gift Screen Optimizations */
+    .memory-card-modal {
+        width: 90%;
+        max-height: 80vh;
+        overflow-y: auto; /* Scroll if text is long */
+        padding: 20px;
+    }
+    
+    .gift-stage {
+        transform: scale(0.8); /* Shrink gift box slightly */
+    }
+}
+
+/* Landscape Mode Safety Fix */
+@media screen and (max-height: 500px) and (orientation: landscape) {
+    .main-screen, .luxury-container {
+        padding-top: 40px;
+        height: auto;
+        min-height: 100vh;
+        overflow-y: auto;
+    }
+}
+/* ================================================= */
+/* === MOBILE CENTERING FIX (Paste at end) === */
+/* ================================================= */
+
+@media screen and (max-width: 480px) {
+    /* 1. Force Perfect Centering */
+    .main-screen {
+        /* Use dynamic height to account for mobile address bars */
+        height: 100dvh !important; 
+        min-height: 100dvh !important;
+        
+        /* Flexbox Enforcement */
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: center !important;
+        justify-content: center !important;
+        
+        /* Remove default padding that might push it off */
+        padding: 0 !important;
+    }
+
+    /* 2. Visual Adjustment */
+    .luxury-container {
+        /* Nudge up slightly (-5%) to account for the visual weight of buttons */
+        transform: translateY(-5%); 
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+
+    /* 3. Ensure Text Doesn't Overflow Horizontally */
+    .architectural-headline {
+        text-align: center;
+        width: 100%;
+        padding: 0 10px;
+    }
+}
+/* ================================================= */
+/* === FIX: FORCE SCREEN 1 TO VISUAL CENTER === */
+/* ================================================= */
+
+@media screen and (max-width: 480px) {
+    .main-screen {
+        /* 1. Use dynamic viewport height to ignore browser bars */
+        height: 100dvh !important;
+        min-height: 100dvh !important;
+        
+        /* 2. Force Flex Centering */
+        display: flex !important;
+        flex-direction: column !important;
+        justify-content: center !important;
+        align-items: center !important;
+        
+        /* 3. THE FIX: Add bottom padding to push content UP */
+        /* This physically lifts the center point higher */
+        padding-bottom: 20vh !important; 
+        padding-top: 0 !important;
+    }
+
+    .luxury-container {
+        /* Reset any margins that might be pushing it down */
+        margin-top: 0 !important;
+        transform: none !important; 
+    }
+}
