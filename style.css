@@ -1159,19 +1159,6 @@ body {
 }
 
 /* 4. "For Dimple" Hanging Tag */
-.premium-gift-box::after {
-    /* We override the previous ::after (right face) carefully OR use a new child element. 
-       Since ::after is used for the cube side, we should actually append a span for the tag
-       OR simply reuse the ribbon container if structure allows. 
-       
-       BETTER APPROACH: Let's assume we can't change HTML structure (User Rule).
-       We can attach it to the .ribbon pseudo-element or just use the existing logic 
-       but we need to be careful not to break the cube.
-       
-       Actually, the user allowed CSS only. 
-       Let's stick a pseudo element on the .ribbon class since it's on top.
-    */
-}
 
 /* We'll use the .ribbon::after for the tag to not break the cube sides */
 .ribbon::after {
@@ -1406,7 +1393,7 @@ body {
 }
 
 /* === Fix for Gallery Button Layout === */
-#backHomeBtn {
+#fixDateBtn {
     position: absolute;
     bottom: 30px;
     left: 50%;
@@ -1419,12 +1406,12 @@ body {
     backdrop-filter: blur(5px);
     width: auto !important;
     /* Don't stretch full width */
-    min-width: 200px !important;
+    min-width: 250px !important;
 }
 
 /* Ensure no overlap on mobile */
 @media screen and (max-width: 480px) {
-    #backHomeBtn {
+    #fixDateBtn {
         bottom: 50px;
         /* Higher up for thumb */
         width: 80% !important;

@@ -402,7 +402,7 @@ function fireConfetti() {
 // ========== BONUS: GALLERY NAVIGATION ==========
 const viewGalleryBtn = document.getElementById('viewGalleryBtn');
 const galleryScreen = document.getElementById('galleryScreen');
-const backHomeBtn = document.getElementById('backHomeBtn');
+const fixDateBtn = document.getElementById('fixDateBtn');
 
 if (viewGalleryBtn && galleryScreen) {
     viewGalleryBtn.addEventListener('click', () => {
@@ -413,10 +413,12 @@ if (viewGalleryBtn && galleryScreen) {
     });
 }
 
-if (backHomeBtn) {
-    backHomeBtn.addEventListener('click', () => {
-        // Simple reload to restart the experience
-        window.location.reload();
+if (fixDateBtn) {
+    fixDateBtn.addEventListener('click', () => {
+        // WhatsApp Redirect
+        const phone = "918866666685";
+        const message = encodeURIComponent("Hey! I loved the surprise. Kadi Malva Aavo! 💖");
+        window.open(`https://wa.me/${phone}?text=${message}`, '_blank');
     });
 }
 
