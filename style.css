@@ -1303,3 +1303,131 @@ body {
         font-size: 12px;
     }
 }
+
+/* ================================================= */
+/* === INFINITE GALLERY SCREEN (BONUS) === */
+/* ================================================= */
+
+.love-wall {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    justify-content: space-evenly;
+    /* Spread columns nicely */
+    gap: 15px;
+    /* Space between columns */
+    overflow: hidden;
+    background: #0f0505;
+    /* Deep backdrop */
+}
+
+/* Vignette Overlay for focus */
+.love-wall-overlay {
+    position: absolute;
+    inset: 0;
+    z-index: 10;
+    background: radial-gradient(circle, transparent 40%, rgba(0, 0, 0, 0.8) 100%);
+    pointer-events: none;
+}
+
+.wall-col {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    width: 32%;
+    /* 3 Columns fit perfectly */
+    min-width: 100px;
+}
+
+.wall-col img {
+    width: 100%;
+    border-radius: 8px;
+    border: 1px solid var(--gold);
+    box-shadow: 0 0 15px var(--pink-glow);
+    display: block;
+    /* Optimization */
+    will-change: transform;
+}
+
+/* --- The Infinite Animation --- */
+@keyframes verticalScroll {
+    from {
+        transform: translateY(0);
+    }
+
+    to {
+        transform: translateY(-50%);
+    }
+
+    /* Ensure HTML has duplicate images to loop gracefully */
+}
+
+@keyframes verticalScrollReverse {
+    from {
+        transform: translateY(-50%);
+    }
+
+    to {
+        transform: translateY(0);
+    }
+}
+
+/* --- Speed & Direction Variations (Parallax) --- */
+.col-slow {
+    animation: verticalScroll 15s linear infinite;
+}
+
+.col-fast-reverse {
+    /* Reverse direction looks cool next to normal ones */
+    animation: verticalScrollReverse 10s linear infinite;
+    transform: translateY(-50%);
+    /* Start from shifted position */
+}
+
+.col-medium {
+    animation: verticalScroll 18s linear infinite;
+}
+
+/* Mobile Tweaks for Gallery */
+@media screen and (max-width: 480px) {
+    .love-wall {
+        gap: 8px;
+        padding: 0 5px;
+    }
+
+    .wall-col {
+        gap: 8px;
+    }
+
+    /* Hide 3rd column on tiny screens if crowded, or just keep it tight */
+    .wall-col:nth-child(3) {
+        display: block;
+    }
+}
+
+/* === Fix for Gallery Button Layout === */
+#backHomeBtn {
+    position: absolute;
+    bottom: 30px;
+    left: 50%;
+    transform: translateX(-50%);
+    /* CENTER IT PERFECTLY */
+    z-index: 50;
+
+    background: rgba(15, 5, 5, 0.7) !important;
+    border: 1px solid var(--gold) !important;
+    backdrop-filter: blur(5px);
+    width: auto !important;
+    /* Don't stretch full width */
+    min-width: 200px !important;
+}
+
+/* Ensure no overlap on mobile */
+@media screen and (max-width: 480px) {
+    #backHomeBtn {
+        bottom: 50px;
+        /* Higher up for thumb */
+        width: 80% !important;
+        font-size: 14px;
+    }
+}

@@ -398,3 +398,25 @@ function fireConfetti() {
     }
 }
 
+
+// ========== BONUS: GALLERY NAVIGATION ==========
+const viewGalleryBtn = document.getElementById('viewGalleryBtn');
+const galleryScreen = document.getElementById('galleryScreen');
+const backHomeBtn = document.getElementById('backHomeBtn');
+
+if (viewGalleryBtn && galleryScreen) {
+    viewGalleryBtn.addEventListener('click', () => {
+        // Switch from Celebration -> Gallery
+        switchScreen(els.celebrationScreen, galleryScreen, () => {
+            // Optional: Start scroll if needed via JS, but CSS handles it
+        });
+    });
+}
+
+if (backHomeBtn) {
+    backHomeBtn.addEventListener('click', () => {
+        // Simple reload to restart the experience
+        window.location.reload();
+    });
+}
+
