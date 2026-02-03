@@ -456,3 +456,227 @@ body {
         padding: 0 20px;
     }
 }
+/* --- NEW SCREENS (APP-LIKE) --- */
+.screen-hidden {
+    position: fixed;
+    inset: 0;
+    z-index: 100;
+    background: var(--bg-dark);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    visibility: hidden;
+    overflow: hidden;
+}
+
+.screen-hidden.visible {
+    opacity: 1;
+    visibility: visible;
+}
+
+/* --- GIFT SCREEN --- */
+.gift-stage {
+    height: 300px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    perspective: 1000px;
+    margin: 40px 0;
+}
+
+.premium-gift-box {
+    width: 150px;
+    height: 150px;
+    background: #a00;
+    position: relative;
+    transform-style: preserve-3d;
+    cursor: pointer;
+    box-shadow: 0 20px 50px rgba(0,0,0,0.5);
+    transition: transform 0.3s;
+}
+
+/* Simple CSS Cube for Gift */
+.premium-gift-box::before { /* Left Face */
+    content: ''; position: absolute; width: 100%; height: 100%;
+    background: #800; transform: rotateY(90deg) translateZ(75px);
+}
+.premium-gift-box::after { /* Right Face */
+    content: ''; position: absolute; width: 100%; height: 100%;
+    background: #800; transform: rotateY(-90deg) translateZ(75px);
+}
+.box-body {
+    position: absolute; width: 100%; height: 100%;
+    background: #c00; transform: translateZ(75px);
+}
+.lid {
+    position: absolute; width: 160px; height: 40px;
+    background: var(--gold);
+    top: -20px; left: -5px;
+    transform: translateZ(80px);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+}
+.ribbon {
+    position: absolute; width: 30px; height: 100%;
+    background: var(--gold);
+    left: 60px; top: 0;
+    transform: translateZ(76px);
+}
+
+.instruction {
+    margin-top: 20px;
+    font-size: 14px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    animation: pulse 2s infinite;
+}
+
+@keyframes pulse { 0%, 100% { opacity: 0.5; } 50% { opacity: 1; } }
+
+/* --- MEMORIES SCREEN --- */
+.full-height {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    padding: 20px 0;
+}
+
+.content-top {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.gallery-scroll-container {
+    flex: 1;
+    width: 100%;
+    overflow-x: auto;
+    overflow-y: hidden;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    padding: 0 40px;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+}
+
+.memory-card {
+    min-width: 280px;
+    height: 400px;
+    background-size: cover;
+    background-position: center;
+    border-radius: 12px;
+    border: 2px solid var(--border-glass);
+    flex-shrink: 0;
+    scroll-snap-align: center;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+    position: relative;
+    transform: scale(0.9);
+    transition: transform 0.3s;
+}
+
+.memory-card.active {
+    transform: scale(1);
+    border-color: var(--gold);
+}
+
+.btn-next {
+    margin-top: 20px;
+    align-self: center;
+    background: transparent;
+    border: 1px solid var(--gold);
+    color: var(--gold);
+}
+
+/* --- MEMORY OVERLAY --- */
+.memory-overlay {
+    position: absolute;
+    inset: 0;
+    z-index: 200;
+    background: rgba(15, 5, 5, 0.9);
+    backdrop-filter: blur(10px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.5s ease;
+}
+
+.memory-overlay.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+.memory-card-modal {
+    background: linear-gradient(135deg, #fff 0%, #f0f0f0 100%);
+    width: 85%;
+    max-width: 400px;
+    padding: 40px 30px;
+    border-radius: 20px;
+    text-align: center;
+    border: 2px solid var(--gold);
+    box-shadow: 0 0 50px rgba(212, 175, 55, 0.4);
+    transform: scale(0.8) translateY(50px);
+    transition: all 0.6s cubic-bezier(0.34, 1.56, 0.64, 1);
+    color: #000;
+}
+
+.memory-overlay.active .memory-card-modal {
+    transform: scale(1) translateY(0);
+}
+
+.memory-icon {
+    font-size: 50px;
+    margin-bottom: 20px;
+    animation: float 3s infinite ease-in-out;
+}
+
+.memory-title {
+    font-family: var(--font-serif);
+    font-size: 28px;
+    margin-bottom: 15px;
+    color: var(--bg-dark);
+}
+
+.memory-content-box {
+    margin-bottom: 30px;
+    font-family: var(--font-sans);
+    font-size: 16px;
+    line-height: 1.6;
+    color: #444;
+}
+
+.memory-img {
+    width: 100%;
+    border-radius: 8px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+}
+
+@keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+}
+
+/* --- ENHANCED NO BUTTON --- */
+.btn-no.begging {
+    transition: all 0.2s ease-out;
+}
+
+.rotate-left { transform: rotate(-15deg) scale(0.9) !important; }
+.rotate-right { transform: rotate(15deg) scale(0.9) !important; }
+
+#noBtn {
+  cursor: not-allowed;
+}
+#noBtn {
+  white-space: nowrap;        /* FORCE single line */
+  min-width: 220px;           /* Prevent shrinking */
+  padding: 12px 20px;         /* Comfortable spacing */
+  text-align: center;
+}
+
+#noBtn .btn-text {
+  display: inline-block;
+  white-space: nowrap;        /* Extra safety */
+}
