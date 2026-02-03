@@ -808,6 +808,13 @@ body {
     #noBtn {
         min-width: unset;
         width: 100%;
+        /* Improve Visibility on Mobile */
+        background: rgba(255, 255, 255, 0.05);
+        /* Slight fill */
+        border-color: rgba(255, 255, 255, 0.3);
+        /* brighter border */
+        margin-top: 10px;
+        /* spacing from YES button */
     }
 
     /* Memory Overlay (Maximize Space) */
@@ -835,9 +842,28 @@ body {
         /* Shrink slightly so it fits */
     }
 
-    /* Celebration Screen */
+    /* Celebration Screen Fixes */
+    .reveal-content {
+        width: 90%;
+        /* Prevent overflow */
+        max-width: 100%;
+        padding: 0 10px;
+        display: flex;
+        flex-direction: column;
+        /* Stack correctly */
+        align-items: center;
+        /* Center everything */
+        margin: 0 auto;
+        /* Centering hack insurance */
+    }
+
     .grand-reveal-text {
-        font-size: clamp(30px, 12vw, 50px);
+        font-size: clamp(30px, 10vw, 45px);
+        /* Smaller max size */
+        line-height: 1.1;
+        /* More breathing room */
+        word-wrap: break-word;
+        /* Prevent cutoff */
     }
 
     .polaroid {
