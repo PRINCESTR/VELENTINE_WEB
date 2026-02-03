@@ -1240,26 +1240,45 @@ body {
     /* Change text too! */
 }
 
-/* --- Step 3: Royal Purple & Rose Gold (Magic) --- */
+/* --- Step 3: Royal Purple & Rose Gold (Magic Finale) --- */
 .premium-gift-box[data-step="2"] .box-body {
-    background: linear-gradient(135deg, #3c096c, #240046) !important;
+    background: linear-gradient(135deg, #4a0e4e, #240046) !important;
+    box-shadow: 0 0 30px rgba(138, 43, 226, 0.4);
 }
 
 .premium-gift-box[data-step="2"]::before {
-    background: linear-gradient(135deg, #240046, #10002b) !important;
+    background: linear-gradient(135deg, #240046, #1a0033) !important;
 }
 
 .premium-gift-box[data-step="2"]::after {
-    background: linear-gradient(135deg, #240046, #10002b) !important;
+    background: linear-gradient(135deg, #240046, #1a0033) !important;
 }
 
 .premium-gift-box[data-step="2"] .lid {
-    background: linear-gradient(45deg, #ffcdb2, #e5989b, #ffcdb2) !important;
+    background: linear-gradient(45deg, #ffc0cb, #ff69b4, #ffc0cb) !important;
+    box-shadow: 0 0 15px rgba(255, 105, 180, 0.5) !important;
 }
 
 .premium-gift-box[data-step="2"] .ribbon {
-    background: linear-gradient(to bottom, #ffcdb2, #b5838d, #6d6875) !important;
+    background: linear-gradient(to bottom, #ffd700, #ffec8b, #ffd700) !important;
 }
+
+.premium-gift-box[data-step="2"] .ribbon::after {
+    color: #4a0e4e;
+    content: "Last One! ❤️";
+    background: #fff;
+    border: 1px solid #ffd700;
+}
+
+/* === Fix Memory Popup Button Width === */
+.memory-card-modal .btn-keep {
+    width: 100%;
+    min-width: 250px;
+    /* Ensure it feels big */
+    margin-top: 15px;
+    justify-content: center;
+}
+
 
 .premium-gift-box[data-step="2"] .ribbon::after {
     color: #6d6875;
