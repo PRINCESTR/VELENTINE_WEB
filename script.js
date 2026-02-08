@@ -429,7 +429,7 @@ if (fixDateBtn) {
 function startRelationshipTimer() {
     // Start Date: Jan 1, 2024 (as requested)
     // Note: Month is 0-indexed in JS Date? Actually string format YYYY-MM-DD works best
-    const startDate = new Date('2024-01-01T00:00:00');
+    const startDate = new Date('2020-01-01T00:00:00');
     const displayElement = document.getElementById('relationshipTimer');
 
     if (!displayElement) return;
