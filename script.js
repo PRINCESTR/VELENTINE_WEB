@@ -22,7 +22,7 @@ const MEMORIES = [
     {
         type: 'image',
         title: 'Our Adventure',
-        url: 'image1.jpeg', // Placeholder
+        url: 'image4.jpeg', // Placeholder
         icon: '✈️'
     },
     {
