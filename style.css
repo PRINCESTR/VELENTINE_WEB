@@ -1279,11 +1279,18 @@ body {
 
 /* === Fix Memory Popup Button Width === */
 .memory-card-modal .btn-keep {
-    width: 100%;
-    min-width: 250px;
-    /* Ensure it feels big */
-    margin-top: 15px;
+    width: auto;
+    /* Allow it to size to content + padding */
+    min-width: 200px;
+    /* Smaller min-width */
+    max-width: 100%;
+    /* Prevent overflow */
+    margin: 15px auto 0 auto;
+    /* Center horizontal */
+    display: inline-flex;
+    /* Better for centering in text-align: center parent */
     justify-content: center;
+    align-items: center;
 }
 
 
