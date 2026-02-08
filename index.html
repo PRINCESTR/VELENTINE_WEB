@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>Will You Be My Valentine? 💌</title>
     <meta name="description" content="A premium Valentine's Day experience for someone special">
     <link rel="stylesheet" href="style.css">
@@ -14,6 +14,7 @@
         rel="stylesheet">
     <!-- GSAP for Cinematic Animations -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.2/dist/confetti.browser.min.js"></script>
 </head>
 
 <body>
@@ -28,17 +29,7 @@
         <source src="music.mp3" type="audio/mpeg">
     </audio>
 
-    <!-- Musical Control UI -->
-    <div class="music-control" id="musicToggle">
-        <div class="vinyl-icon"></div>
-        <div class="wave-container">
-            <div class="wave-bar"></div>
-            <div class="wave-bar"></div>
-            <div class="wave-bar"></div>
-            <div class="wave-bar"></div>
-        </div>
-        <span class="music-text">SOUND OFF</span>
-    </div>
+    <!-- Music Control Removed for Auto-Play -->
 
     <!-- Initial Loading Screen -->
     <div class="loading-screen" id="loadingScreen">
@@ -85,10 +76,66 @@
 
                 <div class="hint-overlay" id="encouragement"></div>
             </div>
+
+
         </div>
     </div>
 
-    <!-- Redesigned Celebration Screen -->
+    <!-- Screen 2: Gift Box (Hidden) -->
+    <div class="screen-hidden" id="giftScreen">
+        <div class="luxury-container">
+            <!-- RELATIONSHIP TIMER -->
+            <div class="relationship-timer-container">
+                <span class="timer-label">Time since our story began...</span>
+                <div class="timer-display" id="relationshipTimer">00 : 00 : 00 : 00</div>
+            </div>
+
+            <span class="vogue-label">A SURPRISE FOR YOU</span>
+            <h1 class="architectural-headline medium">Open Your <br><span class="gold-accent">Gift</span></h1>
+
+            <div class="gift-stage">
+                <div class="premium-gift-box" id="giftBox">
+                    <div class="lid"></div>
+                    <div class="box-body"></div>
+                    <div class="ribbon"></div>
+                </div>
+            </div>
+
+            <p class="luxury-text instruction" id="giftInstruction">Tap to Unwrap Memory 1 of 3</p>
+        </div>
+
+        <!-- Memory Overlay (Popup) -->
+        <div class="memory-overlay" id="memoryOverlay">
+            <div class="memory-card-modal">
+                <div class="memory-icon" id="memIcon">✨</div>
+                <h3 class="memory-title" id="memTitle">Title</h3>
+                <div class="memory-content-box" id="memContent">
+                    <!-- Text or Image -->
+                </div>
+                <button class="btn-luxury btn-keep" id="keepMemoryBtn">
+                    <span class="btn-text">Keep This Memory</span>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Screen 3: Memories (Hidden) -->
+    <div class="screen-hidden" id="memoriesScreen">
+        <div class="luxury-container full-height">
+            <div class="content-top">
+                <span class="vogue-label">OUR JOURNEY</span>
+                <h2 class="architectural-headline small">Moments in <br><span class="gold-accent">Time</span></h2>
+            </div>
+
+            <div class="gallery-scroll-container" id="galleryContainer">
+                <!-- Images will be injected here -->
+            </div>
+
+            <button class="btn-luxury btn-next" id="toFinalBtn">
+                <span class="btn-text">One Last Thing...</span>
+            </button>
+        </div>
+    </div>
     <div class="celebration-screen" id="celebrationScreen">
         <div class="celebration-glass-overlay"></div>
         <canvas id="celebrationCanvas"></canvas>
@@ -110,7 +157,102 @@
                 <span class="badge-names">KAPIL & DIMPLE</span>
                 <span class="badge-line"></span>
             </div>
+
+            <!-- New Button -->
+            <button class="btn-luxury btn-yes" id="viewGalleryBtn" style="margin-top: 30px;">
+                <span class="btn-text">View Our Story 📸</span>
+            </button>
         </div>
+    </div>
+
+    <!-- Screen 4: Infinite Gallery (Bonus) -->
+    <div class="screen-hidden" id="galleryScreen">
+        <div class="love-wall">
+            <div class="love-wall-overlay"></div>
+
+            <!-- Column 1 (Slow Down) -->
+            <div class="wall-col col-slow">
+                <!-- Set 1 -->
+                <img src="image1.jpeg"
+                    alt="Love">
+                <img src="image2.jpeg"
+                    alt="Love">
+                <img src="image3.jpeg"
+                    alt="Love">
+                <img src="image4.jpeg"
+                    alt="Love">
+                <img src="image5.jpeg"
+                    alt="Love">
+                <!-- Set 2 (Duplicate) -->
+                <img src="image1.jpeg"
+                    alt="Love">
+                <img src="image2.jpeg"
+                    alt="Love">
+                <img src="image3.jpeg"
+                    alt="Love">
+                <img src="image4.jpeg"
+                    alt="Love">
+                <img src="image5.jpeg"
+                    alt="Love">
+            </div>
+
+            <!-- Column 2 (Fast Up - Reverse) -->
+            <div class="wall-col col-fast-reverse">
+                <!-- Set 1 -->
+                <img src="img6.jpeg"
+                    alt="Love">
+                <img src="img7.jpeg"
+                    alt="Love">
+                <img src="img8.jpeg"
+                    alt="Love">
+                <img src="img9.jpeg"
+                    alt="Love">
+                <img src="img10.jpeg"
+                    alt="Love">
+                <!-- Set 2 (Duplicate) -->
+             <img src="img6.jpeg"
+                    alt="Love">
+                <img src="img7.jpeg"
+                    alt="Love">
+                <img src="img8.jpeg"
+                    alt="Love">
+                <img src="img9.jpeg"
+                    alt="Love">
+                <img src="img10.jpeg"
+                    alt="Love">
+            </div>
+
+            <!-- Column 3 (Medium Down) -->
+            <div class="wall-col col-medium">
+                <!-- Set 1 -->
+                <img src="img11.jpeg"
+                    alt="Love">
+                <img src="img12.jpeg"
+                    alt="Love">
+                <img src="img13.jpeg"
+                    alt="Love">
+                <img src="img14.jpeg"
+                    alt="Love">
+                <img src="img15.jpeg"
+                    alt="Love">
+                <!-- Set 2 (Duplicate) -->
+          <img src="img11.jpeg"
+                    alt="Love">
+                <img src="img12.jpeg"
+                    alt="Love">
+                <img src="img13.jpeg"
+                    alt="Love">
+                <img src="img14.jpeg"
+                    alt="Love">
+                <img src="img15.jpeg"
+                    alt="Love">
+            </div>
+        </div>
+
+        <button class="btn-luxury btn-yes" id="fixDateBtn"
+            style="position: absolute; bottom: 30px; z-index: 50; background: rgba(0,0,0,0.6); border: 1px solid #d4af37;">
+            <span class="btn-text">Let's Fix The Date 💌</span>
+        </button>
     </div>
 
     <script src="script.js"></script>
