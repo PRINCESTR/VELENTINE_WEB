@@ -16,7 +16,7 @@ const MEMORIES = [
     {
         type: 'text',
         title: 'The First Spark',
-        content: 'Do you remember when we first started talking? I knew right away you were special.',
+        content: 'You are not just part of my future, you ARE my future. Loving you is my life’s purpose',
         icon: '✨'
     },
     {
@@ -28,7 +28,7 @@ const MEMORIES = [
     {
         type: 'text',
         title: 'My Promise',
-        content: 'To always make you laugh, hold your hand, and be your biggest fan. Forever.',
+        content: 'Before you, life was just moving. After you, it has a purpose. You are the reason my days make sense.',
         icon: '❤️'
     }
 ];
