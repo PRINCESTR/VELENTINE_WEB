@@ -303,6 +303,22 @@ if (toFinalBtn) {
     });
 }
 
+// Gallery Slider Configuration (Distinct from Gift Box)
+const SLIDER_DATA = [
+    {
+        type: 'text',
+        content: 'You are not just part of my future, you ARE my future. Loving you is my life’s purpose'
+    },
+    {
+        type: 'image',
+        url: 'image2.jpeg' // Different image for the slider (vs image4.jpeg in Gift Box)
+    },
+    {
+        type: 'text',
+        content: 'I finally figured out my purpose: loving you unconditionally and pretending I’m right in every argument (even when I’m not 😜)'
+    }
+];
+
 // ========== GALLERY INITIALIZATION ==========
 function initGallery() {
     const container = document.getElementById('galleryContainer');
